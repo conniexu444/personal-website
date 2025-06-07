@@ -1,29 +1,45 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import banner from "./assets/banner.png";
 
+// Page components
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import SupportUs from "./pages/SupportUs";
+import Shows from "./pages/Shows";
+import Archives from "./pages/Archives";
+
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)]">
-      <Nav />
+    <Router>
+      <div className="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)]">
+        <Nav />
 
-      {/* Banner */}
-      <div className="w-full">
-        <img
-          src={banner}
-          alt="Lyrical Libations banner"
-          className="w-full h-auto max-h-[300px] object-cover"
-        />
+        {/* Optional banner under nav */}
+        <div className="w-full">
+          <img
+            src={banner}
+            alt="Lyrical Libations banner"
+            className="w-full h-auto max-h-[300px] object-cover"
+          />
+        </div>
+
+        {/* Main content area */}
+        <main className="flex-grow p-6">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/support" element={<SupportUs />} />
+            <Route path="/shows" element={<Shows />} />
+            <Route path="/archives" element={<Archives />} />
+          </Routes>
+        </main>
+
+        <Footer />
       </div>
-
-      <main className="p-6 flex-grow">
-        <h1 className="text-3xl mb-4 font-[var(--font-display)]">
-          Welcome to Lyrical Libations
-        </h1>
-        <p className="text-lg">This is a placeholder for your homepage content.</p>
-      </main>
-
-      <Footer />
-    </div>
+    </Router>
   );
 }

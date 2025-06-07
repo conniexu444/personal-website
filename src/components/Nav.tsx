@@ -1,13 +1,14 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 
 export default function Nav() {
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "Support Us", href: "#" },
-    { name: "Contact", href: "#" },
-    { name: "About", href: "#" },
-    { name: "Shows", href: "#" },
-    { name: "Archives", href: "#" },
+    { name: "Home", path: "/" },
+    { name: "Support Us", path: "/support" },
+    { name: "Contact", path: "/contact" },
+    { name: "About", path: "/about" },
+    { name: "Shows", path: "/shows" },
+    { name: "Archives", path: "/archives" },
   ];
 
   return (
@@ -28,26 +29,26 @@ export default function Nav() {
         {/* Desktop Nav - spread tabs */}
         <nav className="hidden md:flex justify-between w-full text-lg font-medium">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.path}
               className="text-[var(--color-link)] hover:underline underline-offset-4"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
         {/* Mobile Nav - stacked links */}
         <nav className="flex flex-col md:hidden items-center gap-2 text-lg font-medium">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.path}
               className="text-[var(--color-link)] hover:underline underline-offset-4"
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
