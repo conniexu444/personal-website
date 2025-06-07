@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+@tailwind utilities;
+
+@theme {
+  --color-bg: #FFD7E4;
+  --color-text: #3A3238;
+  --color-link: #6E4555;
+  --color-footer: #FFEAF0;
+
+  --font-display: "Merriweather", serif;
+  --font-body: "Calibri", sans-serif;
+}
