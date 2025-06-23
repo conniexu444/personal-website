@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { Menu, X } from "lucide-react"; // optional: use Lucide icons
+import { Menu, X } from "lucide-react";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,6 @@ export default function Nav() {
   return (
     <header className="w-full bg-[var(--color-bg)] px-6 py-4">
       <div className="max-w-7xl mx-auto flex flex-col gap-4">
-        {/* Top row: Logo and Hamburger button */}
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img

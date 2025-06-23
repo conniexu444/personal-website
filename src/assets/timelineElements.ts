@@ -7,7 +7,7 @@ const timelineElements = [
       title: "Edition 1",
       location: "Hide&Seek, Brooklyn, NY",
       description: "Extended happy hour concert featuring local artists",
-      date: "February 19, 2025",
+      date: "Feb 2025",
       icon: "work",
       color: "purple",
       poster: edition1,
@@ -18,7 +18,7 @@ const timelineElements = [
       location: "FourFiveSix, Brooklyn, NY",
       description:
         "An extended happy hour concert featuring local artists and lyrical experimentation. Suggested donation of $10. Free entry.",
-      date: "March 18, 2025",
+      date: "Mar 2025",
       icon: "work",
       color: "purple",
       poster: edition2,
