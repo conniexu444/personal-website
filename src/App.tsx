@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
-import banner from "./assets/banner.png";
 
 // Page components
 import Home from "./pages/Home";
@@ -16,17 +15,6 @@ export default function App() {
     <Router>
       <div className="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)]">
         <Nav />
-
-        {/* Optional banner under nav */}
-        <div className="w-full">
-          <img
-            src={banner}
-            alt="Lyrical Libations banner"
-            className="w-full h-auto max-h-[300px] object-cover"
-          />
-        </div>
-
-        {/* Main content area */}
         <main className="flex-grow p-6">
           <Routes>
             <Route path="/" element={<Home />} />

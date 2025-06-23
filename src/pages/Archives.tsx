@@ -1,14 +1,11 @@
 // src/pages/Home.tsx
 
-export default function Home() {
+export default function Archives() {
     return (
       <div>
         <h1 className="text-3xl font-[var(--font-display)] mb-4">
-          Welcome to Lyrical Libations
+          The Archives
         </h1>
-        <p className="text-lg">
-          This is the home page for your magical, musical journey. Stay tuned for shows, art, and audio explorations.
-        </p>
       </div>
     );
   }

@@ -1,13 +1,20 @@
-// src/pages/Home.tsx
+import banner from "../assets/banner.png";
 
 export default function Home() {
     return (
       <div>
+        <div className="w-full">
+          <img
+            src={banner}
+            alt="Lyrical Libations banner"
+            className="w-full h-auto max-h-[300px] object-cover"
+          />
+        </div>
         <h1 className="text-3xl font-[var(--font-display)] mb-4">
           Welcome to Lyrical Libations
         </h1>
         <p className="text-lg">
-          This is the home page for your magical, musical journey. Stay tuned for shows, art, and audio explorations.
+          Home page blurb
         </p>
       </div>
     );

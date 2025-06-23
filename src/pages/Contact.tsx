@@ -1,5 +1,3 @@
-// src/pages/Contact.tsx
-
 export default function Contact() {
     return (
       <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] p-6">
