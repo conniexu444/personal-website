@@ -16,7 +16,7 @@ export default function App() {
         alt="Lyrical Libations logo"
         className="w-8 h-8 rounded-full object-contain"
       />
-      <span className="text-2xl font-[var(--font-display)]">
+      <span className="text-2xl font-[font-display]">
         Lyrical Libations
       </span>
     </Link>
@@ -25,7 +25,7 @@ export default function App() {
 
 
         {/* Nav bar */}
-        <div className="w-full px-4 sm:px-6 lg:px-12">
+        <div className="w-full px-4 py-6 sm:px-6 lg:px-12">
           <Nav />
         </div>
 

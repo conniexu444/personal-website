@@ -26,7 +26,7 @@ export default function Nav() {
       <header className="w-full bg-[var(--color-bg)] px-6 pt-4 pb-2">
         <div className="max-w-7xl mx-auto flex flex-col gap-4">
           {/* Desktop Nav */}
-          <nav className="hidden md:flex justify-between w-full text-lg font-medium">
+          <nav className="hidden md:flex justify-between w-full text-lg font-[font-display]">
             {routes.map((link) => {
               const isActive = location.pathname === link.href;
 
