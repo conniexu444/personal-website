@@ -33,7 +33,7 @@ export default function App() {
         <main className="flex-grow w-full px-4 sm:px-6 lg:px-12">
           <div className="max-w-7xl mx-auto">
             <Routes>
-              {routes.map(({ href, element, title }) => (
+              {routes.map(({ href, element }) => (
                 <Route key={href} path={href} element={element} />
               ))}
             </Routes>
