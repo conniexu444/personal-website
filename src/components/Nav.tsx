@@ -1,74 +1,66 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import { routes } from "../routes/routes"; // Adjust the path if needed
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
-  const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "Support Us", path: "/support" },
-    { name: "Contact", path: "/contact" },
-    { name: "About", path: "/about" },
-    { name: "Shows", path: "/shows" },
-    { name: "Archives", path: "/archives" },
-  ];
+  // Prevent scroll when mobile nav is open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+  }, [isOpen]);
 
   return (
-    <header className="w-full bg-[var(--color-bg)] px-6 py-4">
-      <div className="max-w-7xl mx-auto flex flex-col gap-4">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img
-              src={logo}
-              alt="Lyrical Libations logo"
-              className="w-6 h-6 rounded-full object-contain"
-            />
-            <span className="text-xl font-bold font-[var(--font-display)]">
-              Lyrical Libations
-            </span>
-          </div>
+    <>
+      {/* Hamburger toggle - pinned in top right corner on mobile */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle menu"
+        className="fixed top-4 right-4 z-50 md:hidden text-[var(--color-link)] bg-[var(--color-bg)] p-2 rounded-md"
+      >
+        {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+      </button>
 
-          {/* Hamburger toggle (only on mobile) */}
-          <button
-            className="md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
+      <header className="w-full bg-[var(--color-bg)] px-6 pt-4 pb-2">
+        <div className="max-w-7xl mx-auto flex flex-col gap-4">
+          {/* Desktop Nav */}
+          <nav className="hidden md:flex justify-between w-full text-lg font-medium">
+            {routes.map((link) => {
+              const isActive = location.pathname === link.href;
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex justify-between w-full text-lg font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className="text-[var(--color-link)] hover:underline underline-offset-4"
-            >
-              {link.name}
-            </Link>
-          ))}
-        </nav>
-
-        {/* Mobile Nav - toggled */}
-        {isOpen && (
-          <nav className="flex flex-col md:hidden items-center gap-2 text-lg font-medium">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.path}
-                onClick={() => setIsOpen(false)} // closes menu on click
-                className="text-[var(--color-link)] hover:underline underline-offset-4"
-              >
-                {link.name}
-              </Link>
-            ))}
+              return (
+                <Link
+                  key={link.title}
+                  to={link.href}
+                  className={`text-[var(--color-link)] hover:underline underline-offset-4 ${
+                    isActive ? "underline" : ""
+                  }`}
+                >
+                  {link.title}
+                </Link>
+              );
+            })}
           </nav>
-        )}
-      </div>
-    </header>
+
+          {/* Mobile Nav - toggled */}
+          {isOpen && (
+            <nav className="md:hidden fixed top-16 left-0 w-full bg-[var(--color-bg)] p-6 flex flex-col items-center gap-4 text-lg font-medium z-40">
+              {routes.map((link) => (
+                <Link
+                  key={link.title}
+                  to={link.href}
+                  onClick={() => setIsOpen(false)}
+                  className="text-[var(--color-link)] hover:underline underline-offset-4"
+                >
+                  {link.title}
+                </Link>
+              ))}
+            </nav>
+          )}
+        </div>
+      </header>
+    </>
   );
 }

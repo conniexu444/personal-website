@@ -43,9 +43,6 @@ export default function Timeline({ defaultColor }: { defaultColor?: string }) {
                 {element.location}
                 <span className="sm:hidden"> | {element.date}</span>
               </div>
-              <div className="mb-4 text-left text-[var(--color-text)]">
-                {element.description}
-              </div>
 
               {/* Poster image if available */}
               {element.poster && (
