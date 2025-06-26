@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { routes } from "../routes/routes"; // Adjust the path if needed
+import { routes } from "../routes/routes";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  // Prevent scroll when mobile nav is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
   }, [isOpen]);
