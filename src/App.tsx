@@ -3,13 +3,12 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import logo from "./assets/logo.png";
 import { routes } from "./routes/routes";
-import EditionPage from "./pages/Edition"; // 👈 import your dynamic route component
+import EditionPage from "./pages/Edition";
 
 export default function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)]">
-        
         <div className="w-full py-4 px-4">
           <div className="flex items-center gap-3">
             <Link to="/" className="flex items-center gap-3">
@@ -18,9 +17,9 @@ export default function App() {
                 alt="Lyrical Libations logo"
                 className="w-8 h-8 rounded-full object-contain"
               />
-              <span className="text-2xl font-[var(--font-display)]">
+              <h1 className="text-2xl font-[var(--font-display)]">
                 Lyrical Libations
-              </span>
+              </h1>
             </Link>
           </div>
         </div>
