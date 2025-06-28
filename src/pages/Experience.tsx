@@ -1,10 +1,10 @@
 import Timeline from "../components/Timeline"
 
-export default function Archives() {
+export default function Experience() {
     return (
       <div>
         <h1 className="text-3xl font-[var(--font-display)] mb-4 text-center">
-          The Archives
+          Experience
         </h1>
         <div className="min-h-screen flex items-center justify-center bg-[var(--color-bg)] px-4 py-8">
       <Timeline />

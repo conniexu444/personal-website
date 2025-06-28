@@ -18,16 +18,6 @@ export default function EditionPage() {
       <h1 className="text-3xl font-[var(--font-display)] mb-4 text-center">
         {edition.title}
       </h1>
-      {edition.poster && (
-        <div className="flex justify-center mb-6">
-          <img
-            src={edition.poster}
-            alt={`${edition.title} poster`}
-            className="w-full max-w-xl rounded-md border border-[var(--color-link)]"
-          />
-        </div>
-      )}
-
       <p className="text-center text-[var(--color-text)] text-lg opacity-80">
         {edition.location} — {edition.date}
       </p>

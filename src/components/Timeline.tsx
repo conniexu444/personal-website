@@ -39,15 +39,6 @@ export default function Timeline({ defaultColor }: { defaultColor?: string }) {
                 {element.location}
                 <span className="sm:hidden"> | {element.date}</span>
               </div>
-
-              {/* Poster image if available */}
-              {element.poster && (
-                <img
-                  src={element.poster}
-                  alt={`${element.title} poster`}
-                  className="w-full rounded-md mb-6 border border-[var(--color-link)]"
-                />
-              )}
             </Link>
           </div>
         );

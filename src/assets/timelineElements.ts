@@ -1,5 +1,3 @@
-import edition2 from "../assets/03-18-edition-2.png"
-import edition1 from "../assets/02-19-edition-1.png"
 
 const timelineElements = [
     {
@@ -9,7 +7,6 @@ const timelineElements = [
       date: "Feb 2025",
       icon: "work",
       color: "purple",
-      poster: edition1,
     },
     {
       id: "Edition-2",
@@ -18,7 +15,6 @@ const timelineElements = [
       date: "Mar 2025",
       icon: "work",
       color: "purple",
-      poster: edition2,
     },
   ];
   

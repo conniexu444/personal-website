@@ -13,49 +13,36 @@ export default function Nav() {
 
   return (
     <>
-      {/* Hamburger toggle - pinned in top right corner on mobile */}
+      {/* Hamburger toggle - always visible */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Toggle menu"
-        className="fixed top-4 right-4 z-50 md:hidden text-[var(--color-link)] bg-[var(--color-bg)] p-2 rounded-md"
+        className="fixed top-4 right-4 z-50 text-[var(--color-link)] bg-[var(--color-bg)] p-2 rounded-md shadow-md"
       >
         {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
       </button>
 
       <header className="w-full bg-[var(--color-bg)] px-6 pt-4 pb-2">
         <div className="max-w-7xl mx-auto flex flex-col gap-4">
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex justify-between w-full text-lg font-[font-display]">
-            {routes.map((link) => {
-              const isActive = location.pathname === link.href;
-
-              return (
-                <Link
-                  key={link.title}
-                  to={link.href}
-                  className={`text-[var(--color-link)] hover:underline underline-offset-4 ${
-                    isActive ? "underline" : ""
-                  }`}
-                >
-                  {link.title}
-                </Link>
-              );
-            })}
-          </nav>
-
-          {/* Mobile Nav - toggled */}
+          {/* Mobile-style Nav - always used */}
           {isOpen && (
-            <nav className="md:hidden fixed top-16 left-0 w-full bg-[var(--color-bg)] p-6 flex flex-col items-center gap-4 text-lg font-medium z-40">
-              {routes.map((link) => (
-                <Link
-                  key={link.title}
-                  to={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-[var(--color-link)] hover:underline underline-offset-4"
-                >
-                  {link.title}
-                </Link>
-              ))}
+            <nav className="fixed top-16 left-0 w-full bg-[var(--color-bg)] p-6 flex flex-col items-center gap-4 text-lg font-medium z-40">
+              {routes.map((link) => {
+                const isActive = location.pathname === link.href;
+
+                return (
+                  <Link
+                    key={link.title}
+                    to={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className={`text-[var(--color-link)] hover:underline underline-offset-4 ${
+                      isActive ? "underline" : ""
+                    }`}
+                  >
+                    {link.title}
+                  </Link>
+                );
+              })}
             </nav>
           )}
         </div>
