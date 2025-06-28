@@ -1,29 +1,17 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Nav from "./components/Nav";
-import { routes } from "./routes/routes";
-import EditionPage from "./pages/Edition";
+import Home from "./pages/Home";
+import { AnimatedNoise } from "./components/animated-noise";
 
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)]">
-        <div className="w-full flex justify-center py-6">
-  <div className="w-2/3">
-    <Nav />
-  </div>
-</div>
-
-
-        <main className="flex-grow w-full px-4 sm:px-6 lg:px-12">
+      <div className="min-h-screen flex flex-col bg-[var(--color-bg)] text-[var(--color-text)] font-[var(--font-body)] overflow-x-hidden">
+{/* 🔊 Animated Noise Layer */}
+        <AnimatedNoise opacity={0.06} className="z-0" />
+        <main className="flex-grow w-full">
           <div className="max-w-7xl mx-auto">
             <Routes>
-              {/* Static routes */}
-              {routes.map(({ href, element }) => (
-                <Route key={href} path={href} element={element} />
-              ))}
-
-              {/* Dynamic archive route */}
-              <Route path="/Experience/:id" element={<EditionPage />} />
+              <Route path="/" element={<Home />} />
             </Routes>
           </div>
         </main>
