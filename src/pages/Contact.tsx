@@ -67,7 +67,7 @@ export default function Contact() {
             <div className="flex justify-center">
   <button
     type="submit"
-    className="bg-[var(--color-button)] border px-4 py-2 rounded hover:bg-green-700 transition"
+    className="bg-[var(--color-bg)] border px-4 py-2 rounded hover:bg-green-300 transition"
   >
     Send Message
   </button>
