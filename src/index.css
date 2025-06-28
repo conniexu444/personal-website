@@ -10,6 +10,20 @@
   font-style: normal;
 }
 
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2.5s ease-in-out infinite;
+}
+
+
 @layer base {
   :root {
     --font-display: 'Neka', serif;
@@ -26,10 +40,12 @@
 }
 
 @theme {
-  --color-bg: #FFD7E4;
+  --color-bg: #f2efe8;
   --color-text: #3A3238;
   --color-link: #6E4555;
-  --color-footer: #FFEAF0;
+  --color-footer: #f8c4be;
+  --color-nav: #31603D;
+  --color-button: #599150;
   --font-display: "Neka", serif;
   --font-body: "Calibri", sans-serif;
 }
