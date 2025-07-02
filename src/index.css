@@ -46,6 +46,13 @@
     --font-body: 'Calibri', sans-serif;
   }
 
+  [data-theme='dark'] {
+    --color-bg: #1a1a1a;
+    --color-text: #f0f0f0;
+    --color-link: #c0aaff;
+    --color-footer: #2a2a2a;
+  }
+
   body {
     font-family: var(--font-body);
   }

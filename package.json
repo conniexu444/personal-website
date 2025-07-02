@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.8",
+    "animejs": "^4.0.2",
     "clsx": "^2.1.1",
     "framer-motion": "^12.19.1",
     "hamburger-react": "^2.5.2",
