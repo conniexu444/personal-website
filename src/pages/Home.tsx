@@ -7,8 +7,11 @@ import ThemeToggle from "../components/ThemeToggle";
 export default function Home() {
   return (
     <main className="min-h-screen text-[var(--color-text)] font-[var(--font-body)] p-6 pt-12 flex flex-col items-center justify-start relative overflow-hidden">
-      {/* Centered 2/3 width container */}
-      <ThemeToggle></ThemeToggle>
+      {/* Sticky Theme Toggle at Top-Right */}
+      <div className="sticky top-4 right-4 self-end z-50">
+        <ThemeToggle />
+      </div>
+
       <div className="w-full max-w-4xl mx-auto text-center">
         <ScrambleHover
           text="Connie Xu"

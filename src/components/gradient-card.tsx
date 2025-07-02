@@ -40,7 +40,9 @@ export const GradientCard = ({
             : "opacity-100"
         )}
         style={{
-          maskImage: `radial-gradient(${circleSize / 2}px circle at center, white, transparent)`,
+          maskImage: `radial-gradient(${
+            circleSize / 2
+          }px circle at center, white, transparent)`,
           width: `${circleSize}px`,
           height: `${circleSize}px`,
           left: `${mouse.elementX}px`,

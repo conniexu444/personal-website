@@ -3,54 +3,82 @@
 
 @tailwind utilities;
 
+/* ---------------------- */
+/* 🧁 Custom Fonts */
+/* ---------------------- */
 @font-face {
   font-family: 'creamysoup';
-  src: url('/public/creamysoup.otf') format('opentype');
+  src: url('/creamysoup.otf') format('opentype'); /* ✅ Remove /public */
   font-weight: normal;
   font-style: normal;
 }
 
+/* ---------------------- */
+/* 🎞 Custom Animations */
+/* ---------------------- */
 @keyframes bounce-slow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
-
 .animate-bounce-slow {
   animation: bounce-slow 2.5s ease-in-out infinite;
 }
 
 @keyframes shake-rotate {
-  0%, 100% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(3deg);
-  }
-  75% {
-    transform: rotate(-3deg);
-  }
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(3deg); }
+  75% { transform: rotate(-3deg); }
 }
-
-
 .animate-shake-rotate {
   animation: shake-rotate 3s ease-in-out infinite;
 }
 
+/* ---------------------- */
+/* 🎨 THEME VARIABLES */
+/* ---------------------- */
 @layer base {
   :root {
-    --font-display: 'creamysoup', serif;
-    --font-body: 'Calibri', sans-serif;
+    /* 🌞 Light theme */
+    --color-bg: #f7ede2;
+    --color-text: #3A3238;
+    --color-link: #6E4555;
+    --color-footer: #f5cac3;
+    --color-nav: #31603D;
+    --color-button: #599150;
+    --color-dark-red: #F3E7E6;
+
+    --color-card-bg: #ffffff;
+    --color-card-text: #3A3238;
+    --color-card-icon: #6E4555;
+    --color-card-subtext: #6E455599;
+
+    --color-accent-1: #F5CAC3;
+    --color-accent-2: #F5B9A0;
+    --color-accent-3: #F4A97D;
+    --color-accent-4: #F4985A;
+
+    --font-display: "creamysoup", serif;
+    --font-body: "Calibri", sans-serif;
   }
 
-  [data-theme='dark'] {
+  .dark {
     --color-bg: #1a1a1a;
     --color-text: #f0f0f0;
     --color-link: #c0aaff;
     --color-footer: #2a2a2a;
+    --color-nav: #3a3a3a;
+    --color-button: #88cc88;
+    --color-dark-red: #403333;
+
+    --color-card-bg: #2a2a2a;
+    --color-card-text: #f0f0f0;
+    --color-card-icon: #c0aaff;
+    --color-card-subtext: #cccccc88;
+
+    --color-accent-1: #FA709A;
+    --color-accent-2: #FAD0C4;
+    --color-accent-3: #A18CD1;
+    --color-accent-4: #FBC2EB;
   }
 
   body {
@@ -61,16 +89,3 @@
     font-family: var(--font-display);
   }
 }
-
-@theme {
-  --color-bg: #f7ede2;
-  --color-text: #3A3238;
-  --color-link: #6E4555;
-  --color-footer: #f5cac3;
-  --color-nav: #31603D;
-  --color-button: #599150;
-  --color-dark-red: #F3E7E6;
-  --font-display: "creamysoup", serif;
-  --font-body: "Calibri", sans-serif;
-}
-
