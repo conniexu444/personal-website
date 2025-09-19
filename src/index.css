@@ -57,35 +57,52 @@
     --color-accent-3: #F4A97D;
     --color-accent-4: #F4985A;
 
+    --color-pattern: #6E4555;
+
     --font-display: "creamysoup", serif;
-    --font-body: "Calibri", sans-serif;
+    --font-body: "Calibri", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-bold: 600;
   }
 
   .dark {
-    --color-bg: #1a1a1a;
-    --color-text: #f0f0f0;
-    --color-link: #c0aaff;
-    --color-footer: #2a2a2a;
-    --color-nav: #3a3a3a;
-    --color-button: #88cc88;
-    --color-dark-red: #403333;
+    --color-bg: #0d1117;
+    --color-text: #ffffff;
+    --color-link: #58a6ff;
+    --color-footer: #161b22;
+    --color-nav: #21262d;
+    --color-button: #238636;
+    --color-dark-red: #2d1b20;
 
-    --color-card-bg: #2a2a2a;
-    --color-card-text: #f0f0f0;
-    --color-card-icon: #c0aaff;
-    --color-card-subtext: #cccccc88;
+    --color-card-bg: #161b22;
+    --color-card-text: #ffffff;
+    --color-card-icon: #58a6ff;
+    --color-card-subtext: #8b949e;
 
-    --color-accent-1: #FA709A;
-    --color-accent-2: #FAD0C4;
-    --color-accent-3: #A18CD1;
-    --color-accent-4: #FBC2EB;
+    --color-accent-1: #f85149;
+    --color-accent-2: #ff7b72;
+    --color-accent-3: #a5a5ff;
+    --color-accent-4: #ffa657;
+
+    --color-pattern: #79c0ff;
+
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
   }
 
   body {
     font-family: var(--font-body);
+    font-weight: var(--font-weight-normal);
+    line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+  }
+
+  p {
+    font-weight: var(--font-weight-normal);
   }
 }

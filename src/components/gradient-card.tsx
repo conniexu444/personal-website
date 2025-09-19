@@ -4,13 +4,13 @@ import type { ReactNode } from "react";
 import { useMouse } from "../cuicui/hooks/use-mouse";
 import { cn } from "../utils/cn";
 
-export const GradientCard = ({
+export const MainMenusGradientCard = ({
   title,
   description,
   withArrow = false,
   circleSize = 400,
-  children,
   className,
+  children,
 }: {
   title: string;
   description?: string;
@@ -23,14 +23,11 @@ export const GradientCard = ({
 
   return (
     <div
+      className="group relative transform-gpu overflow-hidden rounded-[20px] bg-white/10 p-2 transition-transform hover:scale-[1.01] active:scale-90"
       ref={parentRef}
-      className={cn(
-        "group relative transform-gpu overflow-hidden rounded-[20px] bg-white/10 px-8 py-6 transition-transform hover:scale-[1.01] text-gray-800",
-        className
-      )}
     >
       {withArrow && (
-        <ArrowUpRightIcon className="absolute top-2 right-2 z-10 size-5 translate-y-4 text-neutral-700 opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 dark:text-neutral-300" />
+        <ArrowUpRightIcon className="absolute top-2 right-2 z-10 size-5 translate-y-4 text-[var(--color-card-icon)] opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100" />
       )}
       <div
         className={cn(
@@ -48,24 +45,30 @@ export const GradientCard = ({
           left: `${mouse.elementX}px`,
           top: `${mouse.elementY}px`,
           background:
-            "linear-gradient(135deg, #F5CAC3, #F5B9A0,#F4A97D,#F4985A)",
+            "linear-gradient(135deg, #3BC4F2, #7A69F9,#F26378,#F5833F)",
         }}
       />
-      <div className="relative">
-        <div className="flex justify-between items-center">
-          <h3 className="font-semibold text-2xl">{title}</h3>
-          {withArrow && (
-            <ArrowUpRightIcon className="size-5 text-neutral-700 dark:text-neutral-300" />
+      <div className="absolute inset-px rounded-[19px] bg-neutral-100/80 dark:bg-neutral-900/80" />
+      {children && (
+        <div
+          className={cn(
+            "gird relative h-40 place-content-center overflow-hidden rounded-[15px] border-white bg-white/70 dark:border-neutral-950 dark:bg-black/50",
+            className
           )}
+        >
+          {children}
         </div>
+      )}
+      <div className="relative px-4 pt-4 pb-2">
+        <h3 className="font-semibold text-lg text-[var(--color-card-text)]">
+          {title}
+        </h3>
         {description && (
-          <p className="mt-2 text-base text-neutral-700 dark:text-neutral-300">
+          <p className="mt-2 text-[var(--color-card-subtext)]">
             {description}
           </p>
         )}
       </div>
-
-      {children && <div className="relative mt-4">{children}</div>}
     </div>
   );
 };
