@@ -4,6 +4,7 @@ import ScrambleHover from "../components/scramble";
 import { BorderTrail } from "../components/border-trail";
 import { PillToggleTheme } from "../components/ThemeToggle";
 import { FlickeringGrid } from "../cuicui/flickering-pattern";
+import { ContactForm } from "../components/ContactForm";
 
 export default function Home() {
 
@@ -42,22 +43,32 @@ export default function Home() {
             title="Welcome!"
             description="Software engineer with over 4 years of experience building infrastructure for M365 Copilot. Currently, on a platform team at Microsoft."
             circleSize={300}
-            className="w-full mt-8"
+            className="w-full mt-24"
           />
 
           <MainMenusGradientCard
             title="Experience"
             description="Software Engineer at Microsoft"
             circleSize={300}
-            className="w-full mt-8"
+            className="w-full mt-24"
           />
 
           <MainMenusGradientCard
             title="Projects"
             description="Projects on the side"
             circleSize={300}
-            className="w-full mt-8"
+            className="w-full mt-24"
           />
+
+          <div className="w-full mt-12 p-8 bg-[var(--color-card-bg)] rounded-[20px] border border-[var(--color-link)]">
+            <h2 className="text-3xl font-[var(--font-display)] text-[var(--color-card-text)] mb-6 text-center">
+              Get In Touch
+            </h2>
+            <p className="text-[var(--color-card-subtext)] text-center mb-8">
+              Interested in working together? Have a question? I'd love to hear from you!
+            </p>
+            <ContactForm />
+          </div>
 
           <div className="relative flex h-[200px] w-[300px] flex-col items-center justify-center rounded-md bg-white-200 px-5 py-2 mt-12">
             <BorderTrail
