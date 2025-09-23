@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, memo } from "react";
 import { motion } from "motion/react";
 import { cn } from "../utils/cn";
 
@@ -15,7 +15,7 @@ interface ScrambleHoverProps {
   scrambledClassName?: string;
 }
 
-const ScrambleHover = ({
+const ScrambleHover = memo(({
   text,
   scrambleSpeed = 50,
   maxIterations = 10,
@@ -199,6 +199,6 @@ const ScrambleHover = ({
       </span>
     </motion.span>
   );
-};
+});
 
 export default ScrambleHover;

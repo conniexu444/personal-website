@@ -1,10 +1,10 @@
 "use client";
 import { ArrowUpRightIcon } from "lucide-react";
-import type { ReactNode } from "react";
+import { memo, type ReactNode } from "react";
 import { useMouse } from "../cuicui/hooks/use-mouse";
 import { cn } from "../utils/cn";
 
-export const MainMenusGradientCard = ({
+export const MainMenusGradientCard = memo(({
   title,
   description,
   withArrow = false,
@@ -71,4 +71,4 @@ export const MainMenusGradientCard = ({
       </div>
     </div>
   );
-};
+});

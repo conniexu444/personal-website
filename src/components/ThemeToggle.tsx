@@ -1,6 +1,6 @@
 import { cn } from "../utils/cn";
 import { MoonIcon, SunIcon } from "lucide-react";
-import { useTheme } from "./ThemeContext";
+import { useTheme } from "../hooks/useTheme";
 
 export const PillToggleTheme = ({ className }: { className?: string }) => {
   const { theme, toggleTheme } = useTheme();
