@@ -1,12 +1,14 @@
+import { useState } from "react";
 import { MainMenusGradientCard } from "../components/gradient-card";
-import { WavyLine } from "../components/wavy-line";
 import ScrambleHover from "../components/scramble";
 import { BorderTrail } from "../components/border-trail";
 import { PillToggleTheme } from "../components/ThemeToggle";
 import { FlickeringGrid } from "../cuicui/flickering-pattern";
-import { ContactForm } from "../components/ContactForm";
+import { ContactButton } from "../components/ContactButton";
+import { ContactOverlay } from "../components/ContactOverlay";
 
 export default function Home() {
+  const [isContactOverlayOpen, setIsContactOverlayOpen] = useState(false);
 
   return (
     <main className="min-h-screen font-[var(--font-body)] bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-700 relative">
@@ -23,6 +25,8 @@ export default function Home() {
       </div>
 
       <div className="p-6 pt-12 flex flex-col items-center justify-start relative z-10 overflow-hidden">
+        <ContactButton onClick={() => setIsContactOverlayOpen(true)} />
+
         <div className="sticky top-4 right-4 self-end z-50">
           <PillToggleTheme />
         </div>
@@ -36,8 +40,6 @@ export default function Home() {
             useOriginalCharsOnly={true}
             className="text-6xl font-[var(--font-display)] mb-8 text-center"
           />
-
-          <WavyLine className="mb-8" />
 
           <MainMenusGradientCard
             title="Welcome!"
@@ -60,16 +62,6 @@ export default function Home() {
             className="w-full mt-24"
           />
 
-          <div className="w-full mt-12 p-8 bg-[var(--color-card-bg)] rounded-[20px] border border-[var(--color-link)]">
-            <h2 className="text-3xl font-[var(--font-display)] text-[var(--color-card-text)] mb-6 text-center">
-              Get In Touch
-            </h2>
-            <p className="text-[var(--color-card-subtext)] text-center mb-8">
-              Interested in working together? Have a question? I'd love to hear from you!
-            </p>
-            <ContactForm />
-          </div>
-
           <div className="relative flex h-[200px] w-[300px] flex-col items-center justify-center rounded-md bg-white-200 px-5 py-2 mt-12">
             <BorderTrail
               style={{
@@ -91,6 +83,11 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <ContactOverlay
+        isOpen={isContactOverlayOpen}
+        onClose={() => setIsContactOverlayOpen(false)}
+      />
     </main>
   );
 }

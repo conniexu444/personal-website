@@ -3,11 +3,13 @@ import { ArrowUpRightIcon } from "lucide-react";
 import { memo, type ReactNode } from "react";
 import { useMouse } from "../cuicui/hooks/use-mouse";
 import { cn } from "../utils/cn";
+import { BorderTrail } from "./border-trail";
 
 export const MainMenusGradientCard = memo(({
   title,
   description,
   withArrow = false,
+  withBorderTrail = false,
   circleSize = 400,
   className,
   children,
@@ -15,6 +17,7 @@ export const MainMenusGradientCard = memo(({
   title: string;
   description?: string;
   withArrow?: boolean;
+  withBorderTrail?: boolean;
   circleSize?: number;
   children?: ReactNode;
   className?: string;
@@ -26,6 +29,20 @@ export const MainMenusGradientCard = memo(({
       className="group relative transform-gpu overflow-hidden rounded-[20px] bg-white/10 p-2 transition-transform hover:scale-[1.01] active:scale-90"
       ref={parentRef}
     >
+      {withBorderTrail && (
+        <BorderTrail
+          size={60}
+          transition={{
+            repeat: Number.POSITIVE_INFINITY,
+            duration: 8,
+            ease: "linear"
+          }}
+          style={{
+            background: "linear-gradient(135deg, #3BC4F2, #7A69F9, #F26378, #F5833F)",
+            filter: "blur(1px)",
+          }}
+        />
+      )}
       {withArrow && (
         <ArrowUpRightIcon className="absolute top-2 right-2 z-10 size-5 translate-y-4 text-[var(--color-card-icon)] opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100" />
       )}
