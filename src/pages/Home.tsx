@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { MainMenusGradientCard } from "../components/gradient-card";
 import ScrambleHover from "../components/scramble";
-import { BorderTrail } from "../components/border-trail";
 import { PillToggleTheme } from "../components/ThemeToggle";
 import { FlickeringGrid } from "../cuicui/flickering-pattern";
 import { ContactButton } from "../components/ContactButton";
@@ -57,30 +56,16 @@ export default function Home() {
 
           <MainMenusGradientCard
             title="Projects"
-            description="Projects on the side"
             circleSize={300}
             className="w-full mt-24"
           />
 
-          <div className="relative flex h-[200px] w-[300px] flex-col items-center justify-center rounded-md bg-white-200 px-5 py-2 mt-12">
-            <BorderTrail
-              style={{
-                boxShadow:
-                  "0px 0px 60px 30px rgb(0 0 0 / 50%), 0 0 100px 60px rgb(0 0 0 / 50%), 0 0 140px 90px rgb(0 0 0 / 50%)",
-              }}
-              size={100}
-            />
-            <output
-              className="flex h-full animate-pulse flex-col items-start justify-center space-y-2"
-              aria-label="Loading..."
-            >
-              <div className="h-1 w-4 rounded-[4px] bg-zinc-600" />
-              <div className="h-1 w-10 rounded-[4px] bg-zinc-600" />
-              <div className="h-1 w-12 rounded-[4px] bg-zinc-600" />
-              <div className="h-1 w-12 rounded-[4px] bg-zinc-600" />
-              <div className="h-1 w-12 rounded-[4px] bg-zinc-600" />
-            </output>
-          </div>
+          <MainMenusGradientCard
+            title="Spending Tracker"
+            description="Created a "
+            circleSize={300}
+            className="w-full mt-24"
+          />
         </div>
       </div>
 
