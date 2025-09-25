@@ -41,8 +41,7 @@ export default function Home() {
           />
 
           <MainMenusGradientCard
-            title="Welcome!"
-            description="Software engineer with over 4 years of experience building infrastructure for M365 Copilot. Currently, on a platform team at Microsoft."
+            title="Software Engineer"
             circleSize={300}
             className="w-full mt-24"
           />
