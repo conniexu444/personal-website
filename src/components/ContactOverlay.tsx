@@ -40,24 +40,24 @@ export const ContactOverlay = ({ isOpen, onClose, className }: ContactOverlayPro
       <div
         className={cn(
           "relative w-full max-w-2xl mx-4 max-h-[90vh] overflow-y-auto",
-          "bg-[var(--color-bg)] border border-[var(--color-link)] rounded-[20px]",
+          "bg-white dark:bg-neutral-900 border border-neutral-300 dark:border-neutral-700 rounded-[20px]",
           "shadow-2xl transform transition-all duration-300",
           "animate-in slide-in-from-bottom-4 fade-in-0",
           className
         )}
       >
-        <div className="flex items-center justify-between p-6 border-b border-[var(--color-link)]">
-          <h2 className="text-3xl font-[var(--font-display)] text-[var(--color-text)]">
+        <div className="flex items-center justify-between p-6 border-b border-neutral-300 dark:border-neutral-700">
+          <h2 className="text-3xl font-serif text-neutral-900 dark:text-neutral-100">
             Get In Touch
           </h2>
           <button
             onClick={onClose}
             className={cn(
               "w-8 h-8 flex items-center justify-center",
-              "text-[var(--color-text)] hover:text-[var(--color-button)]",
-              "rounded-full hover:bg-[var(--color-card-bg)]",
+              "text-neutral-900 dark:text-neutral-100 hover:text-blue-600 dark:hover:text-blue-400",
+              "rounded-full hover:bg-neutral-100 dark:hover:bg-neutral-800",
               "transition-colors duration-200",
-              "focus:outline-none focus:ring-2 focus:ring-[var(--color-button)]"
+              "focus:outline-none focus:ring-2 focus:ring-blue-500"
             )}
             aria-label="Close contact form"
           >
@@ -78,7 +78,7 @@ export const ContactOverlay = ({ isOpen, onClose, className }: ContactOverlayPro
         </div>
 
         <div className="p-6">
-          <p className="text-[var(--color-text)] text-center mb-8 opacity-80">
+          <p className="text-neutral-700 dark:text-neutral-300 text-center mb-8">
             Interested in working together? Have a question? I'd love to hear from you!
           </p>
           <ContactForm />
