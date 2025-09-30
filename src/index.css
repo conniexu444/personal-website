@@ -40,6 +40,7 @@
   :root {
     /* 🌞 Light theme */
     --color-bg: #f7ede2;
+    --color-bg-rgb: 247, 237, 226;
     --color-text: #3A3238;
     --color-link: #6E4555;
     --color-footer: #f5cac3;
@@ -67,6 +68,7 @@
 
   .dark {
     --color-bg: #0d1117;
+    --color-bg-rgb: 13, 17, 23;
     --color-text: #ffffff;
     --color-link: #58a6ff;
     --color-footer: #161b22;
