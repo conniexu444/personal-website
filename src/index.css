@@ -1,6 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
 @import "tailwindcss";
 
+@theme {
+  --color-*: initial;
+  --breakpoint-*: initial;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
 @tailwind utilities;
 
 /* ---------------------- */
@@ -93,7 +100,6 @@
   }
 
   html {
-    background-color: var(--color-bg);
     transition: background-color 0.3s ease;
   }
 
@@ -101,7 +107,6 @@
     font-family: var(--font-body);
     font-weight: var(--font-weight-normal);
     line-height: 1.6;
-    background-color: var(--color-bg);
     transition: background-color 0.3s ease;
   }
 

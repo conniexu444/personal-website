@@ -1,29 +1,41 @@
-import { useState } from "react";
-import { MainMenusGradientCard } from "../components/gradient-card";
+import { useState, useMemo, useCallback } from "react";
 import ScrambleHover from "../components/scramble";
 import { PillToggleTheme } from "../components/ThemeToggle";
-import { FlickeringGrid } from "../cuicui/flickering-pattern";
-import { ContactButton } from "../components/ContactButton";
 import { ContactOverlay } from "../components/ContactOverlay";
 import { NavigationBlur } from "../components/NavigationBlur";
 import { WeatherDisplay } from "../components/WeatherDisplay";
 import { Clock } from "../components/Clock";
 import { ContactMeButton } from "../components/ContactMeButton";
+import Timeline from "../components/Timeline";
+import { BottomBlurOut } from "../components/bottomBlurOut";
 
 export default function Home() {
   const [isContactOverlayOpen, setIsContactOverlayOpen] = useState(false);
 
-  const startDate = new Date("2022-02-01");
-  const today = new Date();
-  const yearsOfExperience = (
-    (today.getTime() - startDate.getTime()) /
-    (1000 * 60 * 60 * 24 * 365.25)
-  ).toFixed(1);
+  const yearsOfExperience = useMemo(() => {
+    const startDate = new Date("2022-02-01");
+    const today = new Date();
+    return (
+      (today.getTime() - startDate.getTime()) /
+      (1000 * 60 * 60 * 24 * 365.25)
+    ).toFixed(1);
+  }, []);
+
+  const handleOpenContact = useCallback(() => {
+    setIsContactOverlayOpen(true);
+  }, []);
+
+  const handleCloseContact = useCallback(() => {
+    setIsContactOverlayOpen(false);
+  }, []);
 
   return (
-    <main className="min-h-screen font-[var(--font-body)] bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-700 relative">
+    <main className="min-h-screen font-sans bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 transition-colors duration-700 relative">
       {/* Navigation blur effect */}
       <NavigationBlur height={60} blurIntensity={10} />
+
+      {/* Bottom blur effect */}
+      <BottomBlurOut />
 
       {/* Weather display */}
       <WeatherDisplay />
@@ -38,7 +50,7 @@ export default function Home() {
 
       {/* Contact Me button - bottom left corner */}
       <div className="fixed bottom-4 left-4 z-50">
-        <ContactMeButton onClick={() => setIsContactOverlayOpen(true)} />
+        <ContactMeButton onClick={handleOpenContact} />
       </div>
 
       <div className="p-6 pt-12 flex flex-col items-center justify-start relative z-10 overflow-hidden">
@@ -52,7 +64,7 @@ export default function Home() {
             className="text-6xl font-[var(--font-display)] mb-8 text-center"
           />
 
-          <p className="text-left">
+          <p className="text-left text-neutral-700 dark:text-neutral-300">
             Hey, I'm Connie, a software engineer with about {yearsOfExperience}{" "}
             years of experience. What I am really excited to share is that I am
             working on something called GraphRAGs. Are you familiar with what a
@@ -62,7 +74,7 @@ export default function Home() {
             us more relevant and up-to-date data.
           </p>
 
-          <p className="text-left">
+          <p className="text-left text-neutral-700 dark:text-neutral-300">
             So what is GraphRAGs then? GraphRAGs is when we have a graph of say
             a project. And there are people who are also connected to this
             project. With this means that there is some correlation between what
@@ -71,37 +83,15 @@ export default function Home() {
             you more context.
           </p>
 
-          <MainMenusGradientCard
-            title="Software Engineer"
-            circleSize={300}
-            className="w-full mt-24"
-          />
-
-          <MainMenusGradientCard
-            title="Experience"
-            description="Software Engineer at Microsoft"
-            circleSize={300}
-            className="w-full mt-24"
-          />
-
-          <MainMenusGradientCard
-            title="Projects"
-            circleSize={300}
-            className="w-full mt-24"
-          />
-
-          <MainMenusGradientCard
-            title="Spending Tracker"
-            description="Created a "
-            circleSize={300}
-            className="w-full mt-24"
-          />
+          <div className="w-full mt-24 text-left">
+            <Timeline />
+          </div>
         </div>
       </div>
 
       <ContactOverlay
         isOpen={isContactOverlayOpen}
-        onClose={() => setIsContactOverlayOpen(false)}
+        onClose={handleCloseContact}
       />
     </main>
   );

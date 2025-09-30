@@ -1,16 +1,25 @@
-// ThemeContext.tsx
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState, ReactNode } from "react";
 
-export const ThemeContext = createContext({
-  theme: "light",
-  toggleTheme: () => {},
-});
+type Theme = "light" | "dark";
 
-export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-  const [theme, setTheme] = useState(() => {
-    // Check localStorage for saved theme, default to light
+interface ThemeContextType {
+  theme: Theme;
+  toggleTheme: () => void;
+}
+
+export const ThemeContext = createContext<ThemeContextType | undefined>(
+  undefined
+);
+
+interface ThemeProviderProps {
+  children: ReactNode;
+}
+
+export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+  const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("theme") || "light";
+      const savedTheme = localStorage.getItem("theme");
+      return (savedTheme === "dark" || savedTheme === "light") ? savedTheme : "light";
     }
     return "light";
   });
@@ -24,7 +33,6 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
       root.classList.remove("dark");
     }
 
-    // Save theme to localStorage
     localStorage.setItem("theme", theme);
   }, [theme]);
 
