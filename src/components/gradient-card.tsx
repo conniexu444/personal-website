@@ -26,7 +26,10 @@ export const MainMenusGradientCard = memo(({
 
   return (
     <div
-      className="group relative transform-gpu overflow-hidden rounded-[20px] bg-white/10 p-2 transition-transform hover:scale-[1.01] active:scale-90"
+      className={cn(
+        "group relative transform-gpu overflow-hidden rounded-[20px] bg-white/10 p-2 transition-transform hover:scale-[1.01] active:scale-90",
+        className
+      )}
       ref={parentRef}
     >
       {withBorderTrail && (
@@ -68,16 +71,13 @@ export const MainMenusGradientCard = memo(({
       <div className="absolute inset-px rounded-[19px] bg-neutral-100/80 dark:bg-neutral-900/80" />
       {children && (
         <div
-          className={cn(
-            "gird relative h-40 place-content-center overflow-hidden rounded-[15px] border-white bg-white/70 dark:border-neutral-950 dark:bg-black/50",
-            className
-          )}
+          className="gird relative h-40 place-content-center overflow-hidden rounded-[15px] border-white bg-white/70 dark:border-neutral-950 dark:bg-black/50"
         >
           {children}
         </div>
       )}
       <div className="relative px-4 pt-4 pb-2">
-        <h3 className="font-semibold text-lg text-[var(--color-card-text)]">
+        <h3 className="font-semibold text-lg text-[var(--color-card-text)] font-[Merriweather,serif]">
           {title}
         </h3>
         {description && (
