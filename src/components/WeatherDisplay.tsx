@@ -37,21 +37,31 @@ export const WeatherDisplay = () => {
       }
     };
 
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          getWeather(position.coords.latitude, position.coords.longitude);
-        },
-        (err) => {
-          console.error('Error getting location:', err);
-          setError(true);
-          setLoading(false);
-        }
-      );
-    } else {
-      setError(true);
-      setLoading(false);
-    }
+    const fetchWeatherWithLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            getWeather(position.coords.latitude, position.coords.longitude);
+          },
+          (err) => {
+            console.error('Error getting location:', err);
+            setError(true);
+            setLoading(false);
+          }
+        );
+      } else {
+        setError(true);
+        setLoading(false);
+      }
+    };
+
+    // Fetch weather immediately on mount
+    fetchWeatherWithLocation();
+
+    // Set up interval to refresh every 20 minutes (1200000 ms)
+    const interval = setInterval(fetchWeatherWithLocation, 20 * 60 * 1000);
+
+    return () => clearInterval(interval);
   }, []);
 
   if (loading) return null;
