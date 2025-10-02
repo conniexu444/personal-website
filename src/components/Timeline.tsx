@@ -28,6 +28,18 @@ export default function Timeline({ defaultColor }: { defaultColor?: string }) {
               <div className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
                 {element.description}
               </div>
+              {element.tags && element.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {element.tags.map((tag, tagIndex) => (
+                    <span
+                      key={tagIndex}
+                      className="px-3 py-1 text-xs font-medium rounded-full bg-[var(--color-button)]/20 text-[var(--color-nav)] dark:bg-[var(--color-button)]/30 dark:text-[var(--color-button)]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         );

@@ -7,6 +7,7 @@ export interface TimelineElement {
   startDate: string;
   endDate: string;
   description: string;
+  tags?: string[];
 }
 
 const timelineElements: TimelineElement[] = [
@@ -18,6 +19,7 @@ const timelineElements: TimelineElement[] = [
     startDate: "Aug 2024",
     endDate: "Present",
     description: "Working on GraphRAGs and building innovative solutions to enhance LLM capabilities with graph-based retrieval augmented generation.",
+    tags: ["C#", ".NET", "Distributed Systems"],
   },
   {
     id: "microsoft-swe1",
