@@ -24,6 +24,7 @@ function getTagColor(tag: string) {
 export default function Timeline({ defaultColor }: { defaultColor?: string }) {
   return (
     <div className="max-w-4xl mx-auto">
+      <h2 className="sr-only">Experience</h2>
       {timelineElements.map((element, index) => {
         const isLast = index === timelineElements.length - 1;
 

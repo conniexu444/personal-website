@@ -41,6 +41,14 @@
 }
 
 /* ---------------------- */
+/* 🔗 Scroll Anchoring */
+/* ---------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px;
+}
+
+/* ---------------------- */
 /* 🎨 THEME VARIABLES */
 /* ---------------------- */
 @layer base {

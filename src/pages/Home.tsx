@@ -7,6 +7,8 @@ import { WeatherDisplay } from "../components/WeatherDisplay";
 import { Clock } from "../components/Clock";
 import { ContactMeButton } from "../components/ContactMeButton";
 import Timeline from "../components/Timeline";
+import Projects from "../components/Projects";
+import TableOfContent from "../components/TableOfContents";
 import { BottomBlurOut } from "../components/bottomBlurOut";
 
 export default function Home() {
@@ -40,6 +42,11 @@ export default function Home() {
       {/* Weather display */}
       <WeatherDisplay />
 
+      {/* Table of Contents */}
+      <div className="fixed top-32 left-4 z-40">
+        <TableOfContent idOfParentContainer="main-content" className="w-48 rounded-lg p-4" />
+      </div>
+
       {/* Clock display */}
       <Clock />
 
@@ -54,7 +61,7 @@ export default function Home() {
       </div>
 
       <div className="p-6 pt-12 flex flex-col items-center justify-start relative z-10 overflow-hidden">
-        <div className="w-full max-w-4xl mx-auto text-center">
+        <div id="main-content" className="w-full max-w-4xl mx-auto text-center">
           <ScrambleHover
             text="Connie Xu"
             scrambleSpeed={60}
@@ -64,26 +71,33 @@ export default function Home() {
             className="text-6xl font-[var(--font-display)] mb-8 text-center"
           />
 
-          <p className="text-left text-neutral-700 dark:text-neutral-300">
-            Hey, I'm Connie, a software engineer with about {yearsOfExperience}{" "}
-            years of experience. What I am really excited to share is that I am
-            working on something called GraphRAGs. Are you familiar with what a
-            RAG is? Training an LLM is super expensive. And once you have
-            trained an LLM, you then have frozen-in-time data. So, RAGs are the
-            solution to this. This helps fetch more realtime articles that give
-            us more relevant and up-to-date data.
-          </p>
+          <div id="about">
+            <h2 className="sr-only">About</h2>
+            <p className="text-left text-neutral-700 dark:text-neutral-300">
+              Hey, I'm Connie, a software engineer with about {yearsOfExperience}{" "}
+              years of experience. What I am really excited to share is that I am
+              working on something called GraphRAGs. Are you familiar with what a
+              RAG is? Training an LLM is super expensive. And once you have
+              trained an LLM, you then have frozen-in-time data. So, RAGs are the
+              solution to this. This helps fetch more realtime articles that give
+              us more relevant and up-to-date data.
+            </p>
 
-          <p className="text-left text-neutral-700 dark:text-neutral-300">
-            So what is GraphRAGs then? GraphRAGs is when we have a graph of say
-            a project. And there are people who are also connected to this
-            project. With this means that there is some correlation between what
-            you are doing and what they are doing. So, let's say one of your
-            team members is sending you an email. GraphRAGs can be used to give
-            you more context.
-          </p>
+            <p className="text-left text-neutral-700 dark:text-neutral-300">
+              So what is GraphRAGs then? GraphRAGs is when we have a graph of say
+              a project. And there are people who are also connected to this
+              project. With this means that there is some correlation between what
+              you are doing and what they are doing. So, let's say one of your
+              team members is sending you an email. GraphRAGs can be used to give
+              you more context.
+            </p>
+          </div>
 
-          <div className="w-full mt-24 text-left">
+          <div id="projects" className="w-full mt-24 text-left">
+            <Projects />
+          </div>
+
+          <div id="experience" className="w-full mt-24 text-left">
             <Timeline />
           </div>
         </div>
