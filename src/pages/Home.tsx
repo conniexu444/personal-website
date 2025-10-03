@@ -71,7 +71,7 @@ export default function Home() {
             className="text-6xl font-[var(--font-display)] mb-8 text-center"
           />
 
-          <div id="about">
+          <div>
             <h2 className="sr-only">About</h2>
             <p className="text-left text-neutral-700 dark:text-neutral-300">
               Hey, I'm Connie, a software engineer with about {yearsOfExperience}{" "}
@@ -93,11 +93,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div id="projects" className="w-full mt-24 text-left">
+          <div className="w-full mt-24 text-left">
             <Projects />
           </div>
 
-          <div id="experience" className="w-full mt-24 text-left">
+          <div className="w-full mt-24 text-left">
             <Timeline />
           </div>
         </div>
