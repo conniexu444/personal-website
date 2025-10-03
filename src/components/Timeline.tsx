@@ -1,5 +1,26 @@
 import timelineElements from "../assets/timelineElements";
 
+// Generate consistent color from string
+function getTagColor(tag: string) {
+  const colors = [
+    { light: "bg-[var(--color-accent-1)] text-[var(--color-link)]", dark: "dark:bg-[var(--color-accent-1)]/30 dark:text-[var(--color-accent-1)]" },
+    { light: "bg-[var(--color-accent-2)] text-[var(--color-link)]", dark: "dark:bg-[var(--color-accent-2)]/30 dark:text-[var(--color-accent-2)]" },
+    { light: "bg-[var(--color-accent-3)] text-[var(--color-link)]", dark: "dark:bg-[var(--color-accent-3)]/30 dark:text-[var(--color-accent-3)]" },
+    { light: "bg-[var(--color-accent-4)] text-[var(--color-link)]", dark: "dark:bg-[var(--color-accent-4)]/30 dark:text-[var(--color-accent-4)]" },
+    { light: "bg-[var(--color-button)]/30 text-[var(--color-nav)]", dark: "dark:bg-[var(--color-button)]/30 dark:text-[var(--color-button)]" },
+    { light: "bg-[var(--color-nav)]/20 text-[var(--color-nav)]", dark: "dark:bg-[var(--color-link)]/20 dark:text-[var(--color-link)]" },
+  ];
+
+  // Use tag string to generate consistent index
+  let hash = 0;
+  for (let i = 0; i < tag.length; i++) {
+    hash = tag.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const index = Math.abs(hash) % colors.length;
+
+  return `${colors[index].light} ${colors[index].dark}`;
+}
+
 export default function Timeline({ defaultColor }: { defaultColor?: string }) {
   return (
     <div className="max-w-4xl mx-auto">
@@ -33,7 +54,7 @@ export default function Timeline({ defaultColor }: { defaultColor?: string }) {
                   {element.tags.map((tag, tagIndex) => (
                     <span
                       key={tagIndex}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-[var(--color-button)]/20 text-[var(--color-nav)] dark:bg-[var(--color-button)]/30 dark:text-[var(--color-button)]"
+                      className={`px-3 py-1 text-xs font-medium rounded-full ${getTagColor(tag)}`}
                     >
                       {tag}
                     </span>
