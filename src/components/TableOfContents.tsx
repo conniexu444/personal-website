@@ -223,9 +223,9 @@ const TableOfContent = ({
                   left: `${(heading.level - 1) * 8}px`,
                 }}
               />
-              <a
+              <button
                 className={cn(
-                  "relative z-30 block transform-gpu py-1.5 pr-5 pl-2 text-sm leading-4 tracking-tight transition-all hover:translate-x-0.5",
+                  "relative z-30 block transform-gpu py-1.5 pr-5 pl-2 text-sm leading-4 tracking-tight transition-all hover:translate-x-0.5 text-left w-full",
                   // Before element : positionning
                   "before:absolute before:top-0.5 before:right-0 before:bottom-0.5 before:left-0 ",
                   // Before element : animation
@@ -234,13 +234,19 @@ const TableOfContent = ({
                     "font-semibold",
                   heading.level === 3 && "font-normal"
                 )}
-                href={`#${heading.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const element = document.getElementById(heading.id);
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }
+                }}
                 style={{
                   marginLeft: `${(heading.level - 1) * 8}px`,
                 }}
               >
                 {heading.text}
-              </a>
+              </button>
               <ChevronRight className="-translate-y-1/2 absolute top-1/2 right-1 ml-1 size-4 translate-x-1 transform-gpu opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
             </li>
           );
