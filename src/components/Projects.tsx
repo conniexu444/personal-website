@@ -2,6 +2,27 @@ import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import projectElements from "../assets/projectElements";
 
+// Generate consistent color from string (same as Timeline)
+function getTagColor(tag: string) {
+  const colors = [
+    { light: "bg-[var(--color-accent-1)] text-[var(--color-link)]", dark: "dark:bg-[var(--color-accent-1)]/30 dark:text-[var(--color-accent-1)]" },
+    { light: "bg-[var(--color-accent-2)] text-[var(--color-link)]", dark: "dark:bg-[var(--color-accent-2)]/30 dark:text-[var(--color-accent-2)]" },
+    { light: "bg-[var(--color-accent-3)] text-[var(--color-link)]", dark: "dark:bg-[var(--color-accent-3)]/30 dark:text-[var(--color-accent-3)]" },
+    { light: "bg-[var(--color-accent-4)] text-[var(--color-link)]", dark: "dark:bg-[var(--color-accent-4)]/30 dark:text-[var(--color-accent-4)]" },
+    { light: "bg-[var(--color-button)]/30 text-[var(--color-nav)]", dark: "dark:bg-[var(--color-button)]/30 dark:text-[var(--color-button)]" },
+    { light: "bg-[var(--color-nav)]/20 text-[var(--color-nav)]", dark: "dark:bg-[var(--color-link)]/20 dark:text-[var(--color-link)]" },
+  ];
+
+  // Use tag string to generate consistent index
+  let hash = 0;
+  for (let i = 0; i < tag.length; i++) {
+    hash = tag.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  const index = Math.abs(hash) % colors.length;
+
+  return `${colors[index].light} ${colors[index].dark}`;
+}
+
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   const [imagePosition, setImagePosition] = useState<number>(0);
@@ -66,7 +87,7 @@ export default function Projects() {
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 text-xs rounded-full bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300"
+                  className={`px-3 py-1 text-xs font-medium rounded-full ${getTagColor(tech)}`}
                 >
                   {tech}
                 </span>

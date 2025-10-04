@@ -247,7 +247,6 @@ const TableOfContent = ({
               >
                 {heading.text}
               </button>
-              <ChevronRight className="-translate-y-1/2 absolute top-1/2 right-1 ml-1 size-4 translate-x-1 transform-gpu opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
             </li>
           );
         })}
