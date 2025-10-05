@@ -1,6 +1,10 @@
-# React + TypeScript + Vite
+# Connie Xu - Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Built with React, TypeScript, and Vite. Features a custom theme system with TailwindCSS v4.
+
+## Deployment
+
+The site is deployed to GitHub Pages at [www.conniexu.com](https://www.conniexu.com)
 
 Currently, two official plugins are available:
 

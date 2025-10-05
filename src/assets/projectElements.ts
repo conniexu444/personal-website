@@ -11,10 +11,10 @@ export interface ProjectElement {
 const projectElements: ProjectElement[] = [
   {
     id: "mta-wrapper",
-    title: "MTA GTFS Wrapper",
+    title: "NYC MTA API",
     description: "A Go-based API that transforms MTA's complex GTFS data into clean, readable JSON endpoints. Features include route and station-based queries, directional filtering, and intelligent 'Did you mean' suggestions for misspelled station names.",
     technologies: ["Go", "GTFS", "REST API"],
-    link: "https://github.com/conniexu444/mta-wrapper",
+    link: "https://conniexu444.github.io/mta-wrapper/",
     github: "https://github.com/conniexu444/mta-wrapper",
     image: "/projects/mta-wrapper.svg",
   },

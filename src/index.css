@@ -54,6 +54,20 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 120px;
+  background-color: rgb(250, 250, 249);
+}
+
+html.dark {
+  background-color: rgb(10, 10, 10);
+}
+
+body {
+  background-color: rgb(250, 250, 249);
+  min-height: 100vh;
+}
+
+body.dark {
+  background-color: rgb(10, 10, 10);
 }
 
 /* ---------------------- */

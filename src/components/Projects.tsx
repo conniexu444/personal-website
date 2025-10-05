@@ -77,7 +77,7 @@ export default function Projects() {
             onMouseLeave={() => setHoveredProject(null)}
             className="group"
           >
-            <h3 className="text-2xl font-semibold mb-3 text-neutral-900 dark:text-neutral-100 cursor-pointer transition-colors hover:text-neutral-600 dark:hover:text-neutral-400">
+            <h3 className="text-2xl font-sans font-bold mb-3 text-neutral-900 dark:text-neutral-100 cursor-pointer transition-colors hover:text-neutral-600 dark:hover:text-neutral-400 tracking-tight">
               {project.title}
             </h3>
             <p className="text-neutral-700 dark:text-neutral-300 mb-3 leading-relaxed">
@@ -111,7 +111,7 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
                 >
-                  Live Demo →
+                  {project.link.includes('mta-wrapper') ? 'Documentation' : 'Live Demo'} →
                 </a>
               )}
             </div>

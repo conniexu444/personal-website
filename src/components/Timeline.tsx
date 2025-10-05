@@ -43,7 +43,7 @@ export default function Timeline({ defaultColor }: { defaultColor?: string }) {
               <div className="text-sm text-neutral-600 dark:text-neutral-400 mb-1">
                 {element.startDate} - {element.endDate}
               </div>
-              <h3 className="text-xl font-medium text-neutral-900 dark:text-neutral-100 mb-1">
+              <h3 className="text-xl font-sans font-bold text-neutral-900 dark:text-neutral-100 mb-1 tracking-tight">
                 {element.title}
               </h3>
               <div className="text-base text-neutral-700 dark:text-neutral-300 mb-2">
