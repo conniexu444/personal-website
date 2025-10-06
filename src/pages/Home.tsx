@@ -10,6 +10,7 @@ import Timeline from "../components/Timeline";
 import Projects from "../components/Projects";
 import TableOfContent from "../components/TableOfContents";
 import { BottomBlurOut } from "../components/bottomBlurOut";
+import { TypingAnimation } from "../components/TypingAnimation";
 
 export default function Home() {
   const [isContactOverlayOpen, setIsContactOverlayOpen] = useState(false);
@@ -71,7 +72,9 @@ export default function Home() {
             className="text-6xl font-[var(--font-display)] mb-8 text-center"
           />
 
-          <div>
+          <TypingAnimation />
+
+          <div className="mt-12">
             <h2 className="sr-only">About</h2>
             <p className="text-left text-neutral-700 dark:text-neutral-300">
               Hey, I'm Connie, a software engineer with about {yearsOfExperience}{" "}
