@@ -43,8 +43,8 @@ export default function Home() {
       {/* Weather display */}
       <WeatherDisplay />
 
-      {/* Table of Contents */}
-      <div className="fixed top-32 left-4 z-40 hidden md:block">
+      {/* Table of Contents - Hidden on mobile/tablet, visible on laptop */}
+      <div className="fixed top-32 left-4 z-40 [@media(max-width:1024px)]:hidden">
         <TableOfContent idOfParentContainer="main-content" className="w-48 rounded-lg p-4" />
       </div>
 
