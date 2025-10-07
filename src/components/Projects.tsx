@@ -42,7 +42,7 @@ export default function Projects() {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="relative aspect-[5/4] rounded-lg overflow-hidden shadow-2xl">
+            <div className="relative aspect-[5/4] rounded-lg overflow-hidden">
               {/* Animated border trail */}
               <div className="absolute inset-0 rounded-lg">
                 <div className="absolute inset-0 rounded-lg border-2 border-transparent bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 animate-spin-slow opacity-75"

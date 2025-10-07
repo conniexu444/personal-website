@@ -44,7 +44,7 @@ export default function Home() {
       <WeatherDisplay />
 
       {/* Table of Contents */}
-      <div className="fixed top-32 left-4 z-40">
+      <div className="fixed top-32 left-4 z-40 hidden md:block">
         <TableOfContent idOfParentContainer="main-content" className="w-48 rounded-lg p-4" />
       </div>
 
