@@ -1,11 +1,11 @@
 import { useState, useMemo, useCallback } from "react";
+import { Link } from "react-router-dom";
 import ScrambleHover from "../components/scramble";
 import { PillToggleTheme } from "../components/ThemeToggle";
 import { ContactOverlay } from "../components/ContactOverlay";
 import { NavigationBlur } from "../components/NavigationBlur";
 import { WeatherDisplay } from "../components/WeatherDisplay";
 import { Clock } from "../components/Clock";
-import { ContactMeButton } from "../components/ContactMeButton";
 import Timeline from "../components/Timeline";
 import Projects from "../components/Projects";
 import TableOfContent from "../components/TableOfContents";
@@ -56,9 +56,14 @@ export default function Home() {
         <PillToggleTheme />
       </div>
 
-      {/* Contact Me button - bottom left corner */}
+      {/* Blog link - bottom left corner */}
       <div className="fixed bottom-4 left-4 z-50">
-        <ContactMeButton onClick={handleOpenContact} />
+        <Link
+          to="/blog"
+          className="px-4 py-2 bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors"
+        >
+          Blog
+        </Link>
       </div>
 
       <div className="p-6 pt-12 flex flex-col items-center justify-start relative z-10 overflow-hidden">

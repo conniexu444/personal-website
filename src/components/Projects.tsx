@@ -111,7 +111,7 @@ export default function Projects() {
                   rel="noopener noreferrer"
                   className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
                 >
-                  {project.link.includes('mta-wrapper') ? 'Documentation' : 'Live Demo'} →
+                  {project.link.includes('mta-wrapper') ? 'Documentation' : project.id === 'lyrical-libations' ? 'Live Site' : 'Live Demo'} →
                 </a>
               )}
             </div>

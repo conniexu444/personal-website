@@ -27,6 +27,15 @@ const projectElements: ProjectElement[] = [
     github: "https://github.com/conniexu444/spending-tracker",
     image: "/projects/spending-tracker.svg",
   },
+  {
+    id: "lyrical-libations",
+    title: "Lyrical Libations",
+    description: "Lyrical Libations is a website I built for my intensely talented friends, Coco and Gaby. They are two artists who live in NYC. Their primary goal is to make classical music more accessible and they do a beautiful concert series in different local bars in New York City. The website is meant to be playful and fun.",
+    technologies: ["TypeScript", "HTML", "CSS"],
+    link: "https://lyrical-libations.vercel.app/",
+    github: "https://github.com/conniexu444/lyrical-libations",
+    image: "/projects/spending-tracker.svg",
+  },
 ];
 
 export default projectElements;

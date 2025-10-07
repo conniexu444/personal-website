@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import { ThemeProvider } from "./components/ThemeContext";
 
 export default function App() {
@@ -11,6 +13,8 @@ export default function App() {
             <div className="max-w-7xl mx-auto">
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:id" element={<BlogPost />} />
               </Routes>
             </div>
           </main>
