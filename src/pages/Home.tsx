@@ -1,5 +1,4 @@
 import { useState, useMemo, useCallback } from "react";
-import { Link } from "react-router-dom";
 import ScrambleHover from "../components/scramble";
 import { PillToggleTheme } from "../components/ThemeToggle";
 import { ContactOverlay } from "../components/ContactOverlay";
@@ -54,16 +53,6 @@ export default function Home() {
       {/* Theme toggle - bottom right corner */}
       <div className="fixed bottom-4 right-4 z-50">
         <PillToggleTheme />
-      </div>
-
-      {/* Blog link - bottom left corner */}
-      <div className="fixed bottom-4 left-4 z-50">
-        <Link
-          to="/blog"
-          className="px-4 py-2 bg-neutral-200 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-100 rounded-lg hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors"
-        >
-          Blog
-        </Link>
       </div>
 
       <div className="p-6 pt-12 flex flex-col items-center justify-start relative z-10 overflow-hidden">
